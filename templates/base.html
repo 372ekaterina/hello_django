@@ -1,0 +1,29 @@
+<!-- templates/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Python Educator{% endblock title %}</title>
+        <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <header>
+                <div class="float-left">
+                    <h1><a href="{% url 'course_list' %}">Python Educator</a></h1>
+                </div>
+            </header>
+                {% if user.is_authenticated %}
+                    <p>Hi {{ user.username }}!</p>
+                    <p><a href="{% url 'logout' %}">Log out</a> |
+                    <a href="{% url 'manage_course_list' %}">Manage courses</a></p>
+                {% else %}
+                    <p>You are not logged in.</p>
+                    <a href="{% url 'login' %}">Log In</a> |
+                    <a href="{% url 'signup' %}">Sign Up</a>
+                {% endif %}
+        {% block content %}
+        {% endblock content %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+[
+{
+  "model": "courses.subject",
+  "pk": 2,
+  "fields": {
+    "title": "Python",
+    "slug": "python"
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 1,
+  "fields": {
+    "owner": 1,
+    "subject": 2,
+    "title": "Python Project",
+    "slug": "python-project",
+    "overview": "Welcome to Python for Beginners, a project-based approach to learning web development with the Python (Django).",
+    "created": "2023-04-26T19:29:42.887Z"
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 1,
+  "fields": {
+    "course": 1,
+    "title": "Setting and instruments",
+    "description": "We start by properly covering how to configure a local development environment in\r\nChapter 1. We\u2019re using bleeding edge tools in this book: the most recent version of\r\nDjango (3.0), Python (3.7), and Pipenv to manage our virtual environments. We also\r\nintroduce the command line and discuss how to work with a modern text editor"
+  }
+}
+]

@@ -15,8 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from courses.views import CourseListView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path("", include("hello.urls")),
-    path('admin/', admin.site.urls)
+    path('homepage/',include('pages.urls')),  
+    path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')), # new
+    path('accounts/', include('accounts.urls')), # new
+    #path('course/', include('django.contrib.auth.urls')),
+    path('course/', include('courses.urls')),
+    path('', CourseListView.as_view(), name='course_list'),
+    path('students/', include('students.urls')),
 ] 
+if settings.DEBUG:
+ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
